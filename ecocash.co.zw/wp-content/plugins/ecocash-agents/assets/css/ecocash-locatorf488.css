@@ -1,0 +1,770 @@
+/* Clean EcoCash Agent Locator - Modern Professional Design */
+
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap');
+
+/* Modern CSS Variables */
+:root {
+    --ecocash-primary: #004b95;
+    --ecocash-primary-light: rgba(0, 75, 149, 0.08);
+    --ecocash-primary-medium: rgba(0, 75, 149, 0.15);
+    --ecocash-primary-dark: #003366;
+    --ecocash-success: #28a745;
+    --ecocash-warning: #ffc107;
+    --ecocash-danger: #dc3545;
+    --white: #ffffff;
+    --gray-50: #f8f9fa;
+    --gray-100: #e9ecef;
+    --gray-200: #dee2e6;
+    --gray-300: #ced4da;
+    --gray-400: #adb5bd;
+    --gray-500: #6c757d;
+    --gray-600: #495057;
+    --gray-700: #343a40;
+    --gray-800: #212529;
+    --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    --border-radius: 10px;
+    --border-radius-lg: 16px;
+    --transition: all 0.2s ease-in-out;
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+}
+
+/* Main Container */
+#ecocash-agent-locator {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    position: relative;
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--gray-200);
+    max-width: 100%;
+    margin: 0 auto;
+    min-height: 800px;
+}
+
+/* Header */
+.locator-header {
+    background: linear-gradient(135deg, var(--ecocash-primary) 0%, var(--ecocash-primary-dark) 100%);
+    color: var(--white);
+    padding: 28px 40px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: -0.02em;
+    position: relative;
+    overflow: hidden;
+}
+
+.locator-header::after {
+    content: "Find Your Nearest EcoCash Agent";
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.95;
+    margin-top: 6px;
+    letter-spacing: 0;
+}
+
+/* Top Filters Bar */
+.filters-top-bar {
+    background: var(--gray-50);
+    border-bottom: 1px solid var(--gray-200);
+    padding: 20px 40px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-input-container {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+}
+
+#agent-search {
+    width: 100%;
+    padding: 14px 20px 14px 50px;
+    border: 2px solid var(--gray-300);
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 400;
+    background: var(--white);
+    transition: var(--transition);
+    outline: none;
+}
+
+#agent-search:focus {
+    border-color: var(--ecocash-primary);
+    box-shadow: 0 0 0 0.2rem rgba(0, 75, 149, 0.25);
+}
+
+.search-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: var(--gray-500);
+    pointer-events: none;
+}
+
+.filters-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 140px;
+}
+
+.filter-group label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--gray-700);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-group select {
+    padding: 12px 16px;
+    border: 2px solid var(--gray-300);
+    border-radius: var(--border-radius);
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: 500;
+    background: var(--white);
+    transition: var(--transition);
+    cursor: pointer;
+    outline: none;
+}
+
+.filter-group select:focus {
+    border-color: var(--ecocash-primary);
+    box-shadow: 0 0 0 0.2rem rgba(0, 75, 149, 0.25);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.action-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.action-btn.primary {
+    background: var(--ecocash-primary);
+    color: var(--white);
+}
+
+.action-btn.primary:hover {
+    background: var(--ecocash-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+.action-btn.success {
+    background: var(--ecocash-success);
+    color: var(--white);
+}
+
+.action-btn.success:hover {
+    background: #218838;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+.action-btn.secondary {
+    background: var(--gray-500);
+    color: var(--white);
+}
+
+.action-btn.secondary:hover {
+    background: var(--gray-600);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+/* Container Layout */
+.locator-container {
+    display: flex;
+    height: calc(100% - 120px);
+    min-height: 650px;
+    background: var(--white);
+}
+
+/* Map Section - Now on Left */
+.locator-map {
+    flex: 1;
+    position: relative;
+    background: var(--gray-100);
+    border-right: 1px solid var(--gray-200);
+}
+
+#zimbabwe-map {
+    height: 100%;
+    width: 100%;
+}
+
+/* Agent List Section - Now on Right */
+.locator-sidebar {
+    width: 420px;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Results Section */
+.results-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.results-header {
+    padding: 20px 24px 16px;
+    background: var(--gray-50);
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.results-count {
+    font-weight: 600;
+    color: var(--gray-700);
+    font-size: 15px;
+}
+
+.view-toggle {
+    display: flex;
+    background: var(--white);
+    border: 1px solid var(--gray-300);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.view-toggle button {
+    padding: 8px 12px;
+    border: none;
+    background: transparent;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--gray-600);
+}
+
+.view-toggle button.active {
+    background: var(--ecocash-primary);
+    color: var(--white);
+}
+
+/* Agent Cards */
+.agent-cards {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 20px;
+    background: var(--white);
+}
+
+.agent-card {
+    background: var(--white);
+    margin-bottom: 16px;
+    padding: 24px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid var(--gray-200);
+    position: relative;
+    opacity: 0;
+    animation: slideInUp 0.4s ease-out forwards;
+}
+
+.agent-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--ecocash-primary);
+}
+
+.agent-card.active {
+    border-color: var(--ecocash-primary);
+    box-shadow: var(--shadow);
+    background: var(--ecocash-primary-light);
+}
+
+.agent-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--ecocash-primary);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.agent-card:hover::before,
+.agent-card.active::before {
+    opacity: 1;
+}
+
+/* Agent Header */
+.agent-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.agent-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--ecocash-primary), var(--ecocash-primary-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: 600;
+    margin-right: 16px;
+    font-size: 20px;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.agent-name {
+    font-weight: 700;
+    color: var(--gray-800);
+    font-size: 18px;
+    line-height: 1.3;
+    flex: 1;
+}
+
+/* Agent Details */
+.agent-details {
+    margin-left: 0;
+}
+
+.agent-address {
+    color: var(--gray-600);
+    font-size: 15px;
+    margin-bottom: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.agent-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.agent-distance {
+    background: linear-gradient(135deg, var(--ecocash-success), #1e7e34);
+    color: var(--white);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.agent-type {
+    background: linear-gradient(135deg, var(--ecocash-primary), var(--ecocash-primary-dark));
+    color: var(--white);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: var(--shadow-sm);
+}
+
+.agent-type.cash-out {
+    background: linear-gradient(135deg, var(--ecocash-warning), #e0a800);
+    color: var(--gray-800);
+}
+
+.agent-contact {
+    color: var(--ecocash-primary);
+    font-weight: 600;
+    background: var(--ecocash-primary-light);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    border: 1px solid var(--ecocash-primary-medium);
+}
+
+/* Loading Indicator */
+.loading-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+    z-index: 1000;
+    border: 1px solid var(--gray-200);
+}
+
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid var(--gray-200);
+    border-top: 4px solid var(--ecocash-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.loading-indicator p {
+    color: var(--gray-700);
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Map Popup Styles */
+.custom-popup {
+    font-family: inherit;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.leaflet-popup-content-wrapper {
+    background: var(--white) !important;
+    border-radius: var(--border-radius) !important;
+    box-shadow: var(--shadow-lg) !important;
+    border: 1px solid var(--gray-200) !important;
+}
+
+.popup-header {
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.popup-address {
+    color: var(--gray-600);
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.popup-contact {
+    color: var(--ecocash-primary);
+    font-size: 14px;
+    font-weight: 600;
+    background: var(--ecocash-primary-light);
+    padding: 6px 12px;
+    border-radius: var(--border-radius);
+    display: inline-block;
+    margin-bottom: 8px;
+    border: 1px solid var(--ecocash-primary-medium);
+}
+
+.popup-distance {
+    color: var(--ecocash-success);
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.popup-type {
+    color: var(--ecocash-primary);
+    font-weight: 600;
+    font-size: 13px;
+    background: var(--ecocash-primary-light);
+    padding: 4px 8px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+/* No Results */
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--gray-600);
+    font-weight: 500;
+    background: var(--gray-50);
+    border-radius: var(--border-radius);
+    margin: 20px;
+    border: 2px dashed var(--gray-300);
+    font-size: 16px;
+}
+
+.no-results::before {
+    content: '🔍';
+    display: block;
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+/* Custom Scrollbar */
+.agent-cards::-webkit-scrollbar {
+    width: 8px;
+}
+
+.agent-cards::-webkit-scrollbar-track {
+    background: var(--gray-100);
+    border-radius: 4px;
+}
+
+.agent-cards::-webkit-scrollbar-thumb {
+    background: var(--gray-400);
+    border-radius: 4px;
+}
+
+.agent-cards::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-500);
+}
+
+/* Success/Error Messages */
+.toast-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 16px 24px;
+    border-radius: var(--border-radius);
+    color: var(--white);
+    font-weight: 600;
+    font-size: 14px;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: var(--shadow-lg);
+    transform: translateX(100%);
+    transition: var(--transition);
+    min-width: 300px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.toast-success {
+    background: linear-gradient(135deg, var(--ecocash-success), #1e7e34);
+}
+
+.toast-error {
+    background: linear-gradient(135deg, var(--ecocash-danger), #c82333);
+}
+
+.toast-info {
+    background: linear-gradient(135deg, var(--ecocash-primary), var(--ecocash-primary-dark));
+}
+
+/* Map marker styles */
+.custom-marker {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.custom-marker.active {
+    filter: drop-shadow(0 6px 12px rgba(0, 75, 149, 0.4));
+    z-index: 1000;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .locator-sidebar {
+        width: 380px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .locator-sidebar {
+        width: 350px;
+    }
+    
+    .filters-top-bar {
+        padding: 16px 24px;
+        gap: 16px;
+    }
+    
+    .action-buttons {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .locator-container {
+        flex-direction: column;
+    }
+    
+    .locator-sidebar {
+        width: 100%;
+        max-height: 400px;
+        border-right: none;
+        border-bottom: 1px solid var(--gray-200);
+        order: 2;
+    }
+    
+    .locator-map {
+        min-height: 400px;
+        border-right: none;
+        order: 1;
+    }
+    
+    .filters-top-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        padding: 16px 20px;
+    }
+    
+    .filters-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .filter-group {
+        min-width: auto;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .action-btn {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .locator-header {
+        font-size: 24px;
+        padding: 24px 20px;
+    }
+    
+    .locator-header::after {
+        font-size: 14px;
+    }
+    
+    .agent-cards {
+        padding: 12px 16px;
+    }
+    
+    .agent-card {
+        padding: 20px;
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    #ecocash-agent-locator {
+        border-radius: var(--border-radius);
+        margin: 8px;
+        min-height: 700px;
+    }
+    
+    .filters-top-bar {
+        padding: 12px 16px;
+    }
+    
+    .agent-cards {
+        padding: 8px 12px;
+    }
+    
+    .agent-card {
+        padding: 16px;
+        margin-bottom: 8px;
+    }
+    
+    .locator-header {
+        font-size: 20px;
+        padding: 20px 16px;
+    }
+    
+    .locator-header::after {
+        font-size: 13px;
+    }
+    
+    .agent-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .agent-name {
+        font-size: 16px;
+    }
+}
+
+/* Focus States for Accessibility */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--ecocash-primary);
+    outline-offset: 2px;
+}
+
+.agent-card:focus {
+    outline: 3px solid var(--ecocash-primary);
+    outline-offset: 2px;
+}
+
+/* Reduce Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

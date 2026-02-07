@@ -1,0 +1,5 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+.ecocash.co.zw	TRUE	/	FALSE	1999999999	__cf_bm	mWQtMuaLvnG9quIzKXaRak.5DeHIbEZW8rvo3N8nXAM-1770453073-1.0.1.1-CK_XF7NL0LJ4WNurkyIcWF62GqdODhDDsRXPH2qDlFn2DVlmt0wFyMVmSJ0PUqFvdWpH2wx42_0okKUOIWsk4Mf12HmEHyVK4cJr.DSmQVE
+ecocash.co.zw	TRUE	/	FALSE	1999999999	SameSite	None
+
