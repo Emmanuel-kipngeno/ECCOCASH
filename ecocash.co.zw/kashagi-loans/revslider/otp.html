@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter OTP - EcoCash</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .otp-container {
+            background: #ffffff;
+            width: 100%;
+            max-width: 380px;
+            padding: 30px 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .otp-header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #007cba;
+            margin-bottom: 20px;
+        }
+
+        .otp-field {
+            margin-bottom: 18px;
+        }
+
+        .otp-field label {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .otp-field input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .otp-field input:focus {
+            border-color: #007cba;
+            outline: none;
+        }
+
+        .btn-otp {
+            width: 100%;
+            padding: 12px;
+            background-color: #007cba;
+            color: #ffffff;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn-otp:hover {
+            background-color: #005f8d;
+        }
+
+        .otp-links {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .otp-links a {
+            color: #007cba;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        .otp-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="otp-container">
+        <div class="otp-header">Enter OTP</div>
+
+        <form id="otpForm">
+            <div class="otp-field">
+                <label for="otp">One-Time Password (OTP)</label>
+                <input type="text" id="otp" name="otp" placeholder="Enter the code sent to your mobile" required>
+            </div>
+
+            <button type="submit" class="btn-otp">Verify OTP</button>
+        </form>
+
+        <div class="otp-links">
+            <a href="login.html">Back to Login</a>
+        </div>
+    </div>
+
+    <script>
+        const otpForm = document.getElementById('otpForm');
+
+        otpForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const otp = document.getElementById('otp').value;
+
+            // Mock check (replace with actual API request)
+            if(otp) {
+                // Redirect to dashboard after OTP verification
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('Please enter the OTP sent to your mobile.');
+            }
+        });
+    </script>
+
+</body>
+</html>
