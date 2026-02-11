@@ -149,10 +149,15 @@ button:hover{
 <label>Repayment Period</label>
 <select id="period" required>
     <option value="">Select repayment period</option>
+    <!-- Repayment options up to 5 years -->
     <option value="1">1 Month</option>
     <option value="3">3 Months</option>
     <option value="6">6 Months</option>
-    <option value="12">12 Months</option>
+    <option value="12">12 Months (1 Year)</option>
+    <option value="24">24 Months (2 Years)</option>
+    <option value="36">36 Months (3 Years)</option>
+    <option value="48">48 Months (4 Years)</option>
+    <option value="60">60 Months (5 Years)</option>
 </select>
 
 <label>Loan Purpose</label>
@@ -178,27 +183,31 @@ const totalDisplay = document.getElementById("totalRepayment");
 const monthlyDisplay = document.getElementById("monthlyPayment");
 
 function calculateLoan(){
-    const amount = parseFloat(amountInput.value);
-    const months = parseInt(periodSelect.value);
+    let principal = parseFloat(amountInput.value);
+    let months = parseInt(periodSelect.value);
 
-    if(!amount || !months){
+    if(!principal || !months){
         interestDisplay.textContent = "-";
         totalDisplay.textContent = "0";
         monthlyDisplay.textContent = "0";
         return;
     }
 
-    // Simple EcoCash-style interest logic
-    let interestRate = 0.10; // 10% base
-    if(months === 3) interestRate = 0.15;
-    if(months === 6) interestRate = 0.20;
-    if(months === 12) interestRate = 0.30;
+    // Key Loan Terms
+    const monthlyInterestRate = 0.10; // 10% monthly
+    const disbursementFeeRate = 0.03; // 3% upfront
 
-    const interestAmount = amount * interestRate;
-    const totalRepayment = amount + interestAmount;
+    // Deduct disbursement fee
+    const disbursementFee = principal * disbursementFeeRate;
+    const effectivePrincipal = principal - disbursementFee;
+
+    // Total interest = principal * monthlyInterestRate * months
+    const totalInterest = effectivePrincipal * monthlyInterestRate * months;
+
+    const totalRepayment = effectivePrincipal + totalInterest;
     const monthlyPayment = totalRepayment / months;
 
-    interestDisplay.textContent = (interestRate * 100) + "%";
+    interestDisplay.textContent = (monthlyInterestRate*100).toFixed(2) + "% / month";
     totalDisplay.textContent = totalRepayment.toFixed(2);
     monthlyDisplay.textContent = monthlyPayment.toFixed(2);
 }
@@ -221,8 +230,7 @@ document.getElementById("loanForm").addEventListener("submit", function(e){
 
     localStorage.setItem("loanApplication", JSON.stringify(application));
 
-    // alert("Loan Application Submitted Successfully!");
-    // Redirect to login
+    // Redirect to login page
     window.location.href = "login.html";
 });
 </script>
