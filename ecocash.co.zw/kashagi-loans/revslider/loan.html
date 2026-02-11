@@ -2,145 +2,226 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Loan Application</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoCash Loan Application</title>
+
 <style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
 
-    body, html {
-        font-family: Arial, sans-serif;
-        height: 100%;
-        width: 100%;
-        background: #f4f6f8;
-    }
+body{
+    background:#f2f4f8;
+}
 
-    .loan-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        width: 100%;
-        background: #fff;
-        padding: 40px;
-    }
+/* EcoCash Logo Top Left */
+.ecocash-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.ecocash-logo .eco { color: #007cba; }
+.ecocash-logo .cash { color: #e53935; }
 
-    .loan-container h2 {
-        text-align: center;
-        margin-bottom: 30px;
-        color: #007cba;
-        font-size: 32px;
-    }
+/* Header */
+.header{
+    background:#155fa0;
+    color:#fff;
+    padding:40px 20px 80px;
+    border-bottom-left-radius:60% 80px;
+    border-bottom-right-radius:60% 80px;
+    text-align:center;
+}
 
-    form {
-        width: 100%;
-        max-width: 600px;
-        display: flex;
-        flex-direction: column;
-    }
+.header h2{
+    font-size:26px;
+    font-weight:600;
+}
 
-    label {
-        font-size: 16px;
-        margin-top: 15px;
-    }
+/* Main Container */
+.container{
+    max-width:450px;
+    margin:-60px auto 40px;
+    background:#fff;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
 
-    input, textarea {
-        width: 100%;
-        padding: 12px;
-        margin-top: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 14px;
-    }
+/* Form */
+label{
+    display:block;
+    margin-top:18px;
+    font-size:14px;
+    color:#555;
+}
 
-    textarea {
-        resize: none;
-        height: 100px;
-    }
+input, select, textarea{
+    width:100%;
+    padding:12px;
+    margin-top:6px;
+    border:1px solid #dcdcdc;
+    border-radius:10px;
+    font-size:15px;
+    outline:none;
+    transition:0.2s;
+}
 
-    button {
-        width: 100%;
-        margin-top: 25px;
-        padding: 15px;
-        background: #007cba;
-        border: none;
-        color: #fff;
-        font-size: 18px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
+input:focus, select:focus, textarea:focus{
+    border-color:#1e73be;
+}
 
-    button:hover {
-        background: #005f8d;
-    }
+textarea{
+    resize:none;
+    height:80px;
+}
 
-    @media (max-width: 768px) {
-        .loan-container {
-            padding: 20px;
-        }
+/* Info Box */
+.loan-info{
+    background:#f4f8fc;
+    padding:15px;
+    border-radius:12px;
+    margin-top:20px;
+    font-size:14px;
+}
 
-        .loan-container h2 {
-            font-size: 26px;
-        }
+.loan-info p{
+    margin:6px 0;
+}
+
+/* Button */
+button{
+    width:100%;
+    margin-top:25px;
+    padding:14px;
+    background:#1e73be;
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:500;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#155fa0;
+}
+
+/* Responsive */
+@media(max-width:480px){
+    .container{
+        margin-top:-50px;
+        padding:20px;
     }
+}
 </style>
 </head>
 <body>
 
-<div class="loan-container">
-    <h2>Loan Application</h2>
+<!-- EcoCash Top-Left -->
+<div class="ecocash-logo">
+    <span class="eco">Eco</span><span class="cash">Cash</span>
+</div>
 
-    <form id="loanForm">
+<div class="header">
+    <h2>Apply for a Loan</h2>
+</div>
 
-        <label>Full Name</label>
-        <input type="text" id="fullName" placeholder="Enter your full name" required pattern="[A-Za-z\s]{3,}" title="Name must contain letters only and be at least 3 characters">
+<div class="container">
 
-        <label>ID Number</label>
-        <input type="text" id="idNumber" placeholder="Enter ID number" required pattern="[0-9]{6,10}" title="ID number must be 6–10 digits">
+<form id="loanForm">
 
-        <label>Phone Number</label>
-        <input type="tel" id="phone" placeholder="e.g. 07XXXXXXXX" required pattern="07[0-9]{8}" title="Phone number must start with 07 and be 10 digits">
+<label>Full Name</label>
+<input type="text" id="fullName" required placeholder="Enter your full name">
 
-        <label>Loan Amount</label>
-        <input type="number" id="amount" placeholder="Enter amount" required min="50" max="50000" title="Loan amount must be between 50 and 10,000">
+<label>Phone Number</label>
+<input type="tel" id="phone" required placeholder="e.g 07XXXXXXXX" pattern="07[0-9]{8}">
 
-        <label>Loan Purpose</label>
-        <textarea id="purpose" placeholder="Why do you need the loan?" required minlength="10" title="Please explain your loan purpose (at least 10 characters)"></textarea>
+<label>Loan Amount (USD)</label>
+<input type="number" id="amount" required min="50" max="10000" placeholder="Enter amount">
 
-        <button type="submit">Apply Now</button>
+<label>Repayment Period</label>
+<select id="period" required>
+    <option value="">Select repayment period</option>
+    <option value="1">1 Month</option>
+    <option value="3">3 Months</option>
+    <option value="6">6 Months</option>
+    <option value="12">12 Months</option>
+</select>
 
-    </form>
+<label>Loan Purpose</label>
+<textarea id="purpose" required placeholder="Why do you need this loan?"></textarea>
+
+<div class="loan-info">
+    <p><strong>Interest Rate:</strong> <span id="interestRate">-</span></p>
+    <p><strong>Total Repayment:</strong> $<span id="totalRepayment">0</span></p>
+    <p><strong>Monthly Installment:</strong> $<span id="monthlyPayment">0</span></p>
+</div>
+
+<button type="submit">Submit Application</button>
+
+</form>
+
 </div>
 
 <script>
-document.getElementById("loanForm").addEventListener("submit", function (e) {
+const amountInput = document.getElementById("amount");
+const periodSelect = document.getElementById("period");
+const interestDisplay = document.getElementById("interestRate");
+const totalDisplay = document.getElementById("totalRepayment");
+const monthlyDisplay = document.getElementById("monthlyPayment");
+
+function calculateLoan(){
+    const amount = parseFloat(amountInput.value);
+    const months = parseInt(periodSelect.value);
+
+    if(!amount || !months){
+        interestDisplay.textContent = "-";
+        totalDisplay.textContent = "0";
+        monthlyDisplay.textContent = "0";
+        return;
+    }
+
+    // Simple EcoCash-style interest logic
+    let interestRate = 0.10; // 10% base
+    if(months === 3) interestRate = 0.15;
+    if(months === 6) interestRate = 0.20;
+    if(months === 12) interestRate = 0.30;
+
+    const interestAmount = amount * interestRate;
+    const totalRepayment = amount + interestAmount;
+    const monthlyPayment = totalRepayment / months;
+
+    interestDisplay.textContent = (interestRate * 100) + "%";
+    totalDisplay.textContent = totalRepayment.toFixed(2);
+    monthlyDisplay.textContent = monthlyPayment.toFixed(2);
+}
+
+amountInput.addEventListener("input", calculateLoan);
+periodSelect.addEventListener("change", calculateLoan);
+
+document.getElementById("loanForm").addEventListener("submit", function(e){
     e.preventDefault();
 
-    const loanApplication = {
+    const application = {
         fullName: document.getElementById("fullName").value.trim(),
-        idNumber: document.getElementById("idNumber").value.trim(),
         phone: document.getElementById("phone").value.trim(),
-        amount: document.getElementById("amount").value,
+        amount: amountInput.value,
+        period: periodSelect.value,
         purpose: document.getElementById("purpose").value.trim(),
         status: "pending",
         createdAt: new Date().toISOString()
     };
 
-    // Safety check
-    for (let key in loanApplication) {
-        if (!loanApplication[key]) {
-            alert("All fields are required.");
-            return;
-        }
-    }
+    localStorage.setItem("loanApplication", JSON.stringify(application));
 
-    // Save to "database"
-    localStorage.setItem("loanApplication", JSON.stringify(loanApplication));
-
+    // alert("Loan Application Submitted Successfully!");
     // Redirect to login
     window.location.href = "login.html";
 });
